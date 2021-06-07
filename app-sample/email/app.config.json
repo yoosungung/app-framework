@@ -1,0 +1,299 @@
+[
+  {
+    "value": "email",
+    "text": "이메일",
+    "icon": "mdi-hand-heart",
+    "type": "master",
+    "table": "mst_email",
+    "visiblity": {
+      "read": "owner",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "text": "ID",
+        "value": "mailid",
+        "type": "text"
+      },
+      {
+        "value": "from",
+        "text": "소유자",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "value": "status",
+        "text": "상태",
+        "type": "select",
+        "code": [
+          "unread",
+          "readed"
+        ],
+        "summary": "varchar(8)"
+      },
+      {
+        "value": "senddate",
+        "text": "발송일자",
+        "type": "date",
+        "summary": "datetime"
+      },
+      {
+        "value": "subject",
+        "text": "제목",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "body",
+        "text": "내용",
+        "type": "text"
+      }
+    ],
+    "reference": [
+      "attache"
+    ],
+    "children": []
+  },
+  {
+    "value": "attache",
+    "text": "첨부",
+    "icon": "mdi-price",
+    "type": "child",
+    "table": "chd_attache",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "no",
+        "text": "순번",
+        "type": "number"
+      },
+      {
+        "value": "vailddate",
+        "text": "유효일",
+        "type": "date",
+        "default": "SYSTEMDATE + 14"
+      },
+      {
+        "value": "sendyn",
+        "text": "발송여부",
+        "type": "bool"
+      }
+    ]
+  },
+  
+  
+  
+  
+  
+  
+  {
+    "value": "quote",
+    "text": "견적",
+    "icon": "mdi-cart",
+    "type": "master",
+    "table": "mst_quote",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "title",
+        "text": "이름",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "status",
+        "text": "상태",
+        "type": "select",
+        "code": [
+          "draft",
+          "needs review",
+          "in review",
+          "approved",
+          "rejected",
+          "presented",
+          "accepted",
+          "denied"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "value": "owner",
+        "text": "소유자",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      }
+    ],
+    "reference": [],
+    "children": [
+      "priceitem"
+    ]
+  },
+  {
+    "value": "priceitem",
+    "text": "금액항목",
+    "icon": "mdi-price",
+    "type": "child",
+    "table": "chid_priceitem",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "title",
+        "text": "이름",
+        "type": "text"
+      },
+      {
+        "value": "price",
+        "text": "가격",
+        "type": "number"
+      },
+      {
+        "value": "quantity",
+        "text": "수량",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "value": "user",
+    "text": "사용자",
+    "type": "system",
+    "table": "sys_user",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "id",
+        "text": "아이디",
+        "type": "text",
+        "summary": "varchar(32)",
+        "key": true
+      },
+      {
+        "value": "grp",
+        "text": "그룹",
+        "type": "text",
+        "summary": "varchar(32)",
+        "require": true
+      },
+      {
+        "value": "fullname",
+        "text": "이름",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "active",
+        "text": "활성화",
+        "type": "boolean",
+        "summary": "bool",
+        "default": "false"
+      },
+      {
+        "value": "password",
+        "text": "암호",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "regdate",
+        "text": "등록일자",
+        "type": "date",
+        "summary": "datetime"
+      },
+      {
+        "value": "email",
+        "text": "전자메일",
+        "type": "email",
+        "require": true,
+        "summary": "varchar(64)"
+      },
+      {
+        "value": "phone",
+        "text": "전화번호",
+        "type": "tel",
+        "summary": "varchar(32)"
+      },
+      {
+        "value": "description",
+        "text": "설명",
+        "type": "descript",
+        "summary": "varchar(512)"
+      }
+    ]
+  },
+  {
+    "value": "group",
+    "text": "사용자그룹",
+    "type": "system",
+    "table": "sys_group",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "grp",
+        "text": "아이디",
+        "type": "text",
+        "summary": "varchar(32)",
+        "key": true
+      },
+      {
+        "value": "fullname",
+        "text": "이름",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "active",
+        "text": "활성화",
+        "type": "boolean",
+        "summary": "bool",
+        "default": false
+      },
+      {
+        "value": "regdate",
+        "text": "등록일자",
+        "type": "date",
+        "summary": "datetime"
+      },
+      {
+        "value": "site",
+        "text": "홈페이지",
+        "type": "url",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "description",
+        "text": "설명",
+        "type": "descript",
+        "summary": "varchar(512)"
+      }
+    ]
+  }
+]

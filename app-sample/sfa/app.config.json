@@ -1,0 +1,1513 @@
+[
+  {
+    "value": "lead",
+    "text": "리드",
+    "icon": "mdi-lead-pencil",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "type": "master",
+    "table": "mst_lead",
+    "fields": [
+      {
+        "text": "리드이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "리드상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "contacted",
+          "close - converted",
+          "close - not converted"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "리드소유자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "성",
+        "value": "lastname",
+        "type": "text"
+      },
+      {
+        "text": "이름",
+        "value": "firstname",
+        "type": "text"
+      },
+      {
+        "text": "호칭",
+        "value": "salutation",
+        "type": "select",
+        "code": [
+          "Mr",
+          "Mrs",
+          "Ms",
+          "Dr",
+          "Prof"
+        ]
+      },
+      {
+        "text": "회사",
+        "value": "company",
+        "type": "text"
+      },
+      {
+        "text": "전화",
+        "value": "phone",
+        "type": "tel"
+      },
+      {
+        "text": "휴대폰",
+        "value": "mobilephone",
+        "type": "tel"
+      },
+      {
+        "text": "팩스",
+        "value": "fax",
+        "type": "tel"
+      },
+      {
+        "text": "직급",
+        "value": "rank",
+        "type": "text"
+      },
+      {
+        "text": "이메일",
+        "value": "email",
+        "type": "email"
+      },
+      {
+        "text": "리드소스",
+        "value": "leadsource",
+        "type": "select",
+        "code": [
+          "web",
+          "phone inquire",
+          "partner referral",
+          "purchased list",
+          "other"
+        ]
+      },
+      {
+        "text": "웹사이트",
+        "value": "website",
+        "type": "url"
+      },
+      {
+        "text": "산업",
+        "value": "industry",
+        "type": "select",
+        "code": [
+          "agriculture",
+          "apparel",
+          "banking",
+          "biotechnology",
+          "chemicals",
+          "communications",
+          "construction",
+          "consulting",
+          "education",
+          "electronics",
+          "energy",
+          "engineering",
+          "entertainment",
+          "environmental",
+          "finance",
+          "food & beverage",
+          "government",
+          "healthcare",
+          "hospitality",
+          "insurance",
+          "machinery",
+          "manufacturing",
+          "media",
+          "not for profit",
+          "recreation",
+          "retail",
+          "shipping",
+          "technology",
+          "telecommunications",
+          "transportation",
+          "utilities",
+          "other"
+        ]
+      },
+      {
+        "text": "연매출액",
+        "value": "annualrevenue",
+        "type": "number"
+      },
+      {
+        "text": "등급",
+        "value": "rating",
+        "type": "select",
+        "code": [
+          "hot",
+          "warm",
+          "cold"
+        ]
+      },
+      {
+        "text": "직원수",
+        "value": "numberofemployees",
+        "type": "number"
+      },
+      {
+        "text": "리드통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "우편번호",
+        "value": "zip",
+        "type": "zip"
+      },
+      {
+        "text": "시도",
+        "value": "siname",
+        "type": "text"
+      },
+      {
+        "text": "시군구",
+        "value": "sggname",
+        "type": "text"
+      },
+      {
+        "text": "읍면",
+        "value": "emdname",
+        "type": "text"
+      },
+      {
+        "text": "도로명",
+        "value": "roadname",
+        "type": "text"
+      },
+      {
+        "text": "건물번호",
+        "value": "buildingno",
+        "type": "text"
+      },
+      {
+        "text": "상세주소",
+        "value": "detailaddress",
+        "type": "text"
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "관심상품",
+        "value": "productinterest",
+        "type": "text"
+      },
+      {
+        "text": "사업장수",
+        "value": "numberoflocations",
+        "type": "number"
+      },
+      {
+        "text": "마케팅동의",
+        "value": "marketingoptin",
+        "type": "bool"
+      },
+      {
+        "text": "이메일수신동의",
+        "value": "emailoptin",
+        "type": "bool"
+      },
+      {
+        "text": "전화수신동의",
+        "value": "calloptin",
+        "type": "bool"
+      },
+      {
+        "text": "SMS수신동의",
+        "value": "smsoptin",
+        "type": "bool"
+      },
+      {
+        "text": "DM수신동의",
+        "value": "dmoptin",
+        "type": "bool"
+      },
+      {
+        "text": "전환일시",
+        "value": "converteddate",
+        "type": "date"
+      }
+    ]
+  },
+  {
+    "value": "opportunity",
+    "text": "기회",
+    "icon": "mdi-hand-heart",
+    "visiblity": {
+      "read": "group",
+      "write": "all"
+    },
+    "type": "master",
+    "table": "mst_opportunity",
+    "fields": [
+      {
+        "text": "기회이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "단계",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "prospecting",
+          "qualification",
+          "needs analysis",
+          "value proposition",
+          "id. decision makers",
+          "perception analysis",
+          "proposal/price quote",
+          "negotiation/review",
+          "closed won",
+          "closed lost"
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "기회소유자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "비공개",
+        "value": "isprivate",
+        "type": "bool"
+      },
+      {
+        "text": "금액",
+        "value": "amount",
+        "type": "number"
+      },
+      {
+        "text": "마감일자",
+        "value": "closedate",
+        "type": "date"
+      },
+      {
+        "text": "유형",
+        "value": "type",
+        "type": "select",
+        "code": [
+          "AA",
+          "BB"
+        ]
+      },
+      {
+        "text": "리드소스",
+        "value": "leadid",
+        "type": "reference",
+        "code": [
+          {
+            "object": "lead",
+            "value": "id",
+            "text": "title"
+          }
+        ]
+      },
+      {
+        "text": "성공확률(%)",
+        "value": "probability",
+        "type": "number"
+      },
+      {
+        "text": "기회통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "주요경쟁사",
+        "value": "maincompetitors",
+        "type": "text"
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "가격목록",
+        "value": "pricebookid",
+        "type": "reference",
+        "code": [
+          {
+            "object": "pricebook",
+            "value": "id",
+            "text": "title"
+          }
+        ]
+      },
+      {
+        "text": "수량",
+        "value": "totalopportunityquantity",
+        "type": "number"
+      },
+      {
+        "text": "예상매출액",
+        "value": "expectedrevenue",
+        "type": "number"
+      },
+      {
+        "text": "예측범주",
+        "value": "forecastcategoryname",
+        "type": "select",
+        "code": [
+          "omit",
+          "pipeline",
+          "bastcase",
+          "commit",
+          "close"
+        ]
+      }
+    ]
+  },
+  {
+    "value": "quote",
+    "text": "견적",
+    "icon": "mdi-cart",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "type": "master",
+    "table": "mst_quote",
+    "fields": [
+      {
+        "text": "견적서이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "draft",
+          "needs review",
+          "in review",
+          "approved",
+          "rejected",
+          "presented",
+          "accepted",
+          "denied"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "소유자이름",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "견적서번호",
+        "value": "quotenumber",
+        "type": "text"
+      },
+      {
+        "text": "만료일자",
+        "value": "expirationdate",
+        "type": "date"
+      },
+      {
+        "text": "동기화",
+        "value": "issyncing",
+        "type": "bool"
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "세금",
+        "value": "tax",
+        "type": "number"
+      },
+      {
+        "text": "발송및관리",
+        "value": "shippinghandling",
+        "type": "number"
+      },
+      {
+        "text": "전화",
+        "value": "phone",
+        "type": "tel"
+      },
+      {
+        "text": "팩스",
+        "value": "fax",
+        "type": "tel"
+      },
+      {
+        "text": "이메일",
+        "value": "email",
+        "type": "email"
+      }
+    ]
+  },
+  {
+    "value": "account",
+    "text": "계정",
+    "icon": "mdi-account-check",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "type": "master",
+    "table": "mst_account",
+    "fields": [
+      {
+        "text": "계정이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "계정상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "계정소유자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "계정번호",
+        "value": "accountnumber",
+        "type": "text"
+      },
+      {
+        "text": "계정사이트",
+        "value": "site",
+        "type": "text"
+      },
+      {
+        "text": "유형",
+        "value": "type",
+        "type": "text"
+      },
+      {
+        "text": "산업",
+        "value": "industry",
+        "type": "select",
+        "code": [
+          "agriculture",
+          "apparel",
+          "banking",
+          "biotechnology",
+          "chemicals",
+          "communications",
+          "construction",
+          "consulting",
+          "education",
+          "electronics",
+          "energy",
+          "engineering",
+          "entertainment",
+          "environmental",
+          "finance",
+          "food & beverage",
+          "government",
+          "healthcare",
+          "hospitality",
+          "insurance",
+          "machinery",
+          "manufacturing",
+          "media",
+          "not for profit",
+          "recreation",
+          "retail",
+          "shipping",
+          "technology",
+          "telecommunications",
+          "transportation",
+          "utilities",
+          "other"
+        ]
+      },
+      {
+        "text": "연매출액",
+        "value": "annualrevenue",
+        "type": "number"
+      },
+      {
+        "text": "등급",
+        "value": "rating",
+        "type": "text"
+      },
+      {
+        "text": "전화",
+        "value": "phone",
+        "type": "tel"
+      },
+      {
+        "text": "팩스",
+        "value": "fax",
+        "type": "text"
+      },
+      {
+        "text": "종목코드",
+        "value": "tickersymbol",
+        "type": "text"
+      },
+      {
+        "text": "웹사이트",
+        "value": "website",
+        "type": "url"
+      },
+      {
+        "text": "소유권",
+        "value": "ownership",
+        "type": "select",
+        "code": [
+          "public",
+          "private",
+          "subsidiary",
+          "other"
+        ]
+      },
+      {
+        "text": "직원수",
+        "value": "numberofemployees",
+        "type": "number"
+      },
+      {
+        "text": "업태",
+        "value": "salestype",
+        "type": "text"
+      },
+      {
+        "text": "업종",
+        "value": "typeofbusiness",
+        "type": "text"
+      },
+      {
+        "text": "계정통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "청구지",
+        "value": "billingaddressid",
+        "type": "text"
+      },
+      {
+        "text": "배송지",
+        "value": "shippingaddressid",
+        "type": "text"
+      },
+      {
+        "text": "고객우선순위",
+        "value": "customerpriority",
+        "type": "select",
+        "code": [
+          "high",
+          "medium",
+          "low"
+        ]
+      },
+      {
+        "text": "SLA",
+        "value": "sla",
+        "type": "text"
+      },
+      {
+        "text": "SLA만료일자",
+        "value": "slaexpirationdate",
+        "type": "date"
+      },
+      {
+        "text": "SLA일련번호",
+        "value": "slaserialnumber",
+        "type": "text"
+      },
+      {
+        "text": "추가판매기회",
+        "value": "upsellopportunity",
+        "type": "select",
+        "code": [
+          "yes",
+          "maybe",
+          "no"
+        ]
+      },
+      {
+        "text": "리드소스",
+        "value": "leadsource",
+        "type": "select",
+        "code": [
+          "web",
+          "phone inquire",
+          "partner referral",
+          "purchased list",
+          "other"
+        ]
+      },
+      {
+        "text": "시작연도",
+        "value": "yearstarted",
+        "type": "text"
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "사업장수",
+        "value": "numberoflocations",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "value": "contact",
+    "text": "연락처",
+    "icon": "mdi-contacts",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "type": "master",
+    "table": "mst_contact",
+    "fields": [
+      {
+        "text": "연락처이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "연락처상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "연락처소유자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "성",
+        "value": "lastname",
+        "type": "text"
+      },
+      {
+        "text": "이름",
+        "value": "firstname",
+        "type": "text"
+      },
+      {
+        "text": "호칭",
+        "value": "salutation",
+        "type": "select",
+        "code": [
+          "Mr",
+          "Mrs",
+          "Ms",
+          "Dr",
+          "Prof"
+        ]
+      },
+      {
+        "text": "휴대폰",
+        "value": "mobilephone",
+        "type": "tel"
+      },
+      {
+        "text": "전화",
+        "value": "phone",
+        "type": "tel"
+      },
+      {
+        "text": "자택전화번호",
+        "value": "homephone",
+        "type": "tel"
+      },
+      {
+        "text": "기타전화",
+        "value": "otherphone",
+        "type": "tel"
+      },
+      {
+        "text": "팩스",
+        "value": "fax",
+        "type": "tel"
+      },
+      {
+        "text": "직급",
+        "value": "rank",
+        "type": "text"
+      },
+      {
+        "text": "부서",
+        "value": "department",
+        "type": "text"
+      },
+      {
+        "text": "생년월일",
+        "value": "birthdate",
+        "type": "date"
+      },
+      {
+        "text": "상급자",
+        "value": "reportstoid",
+        "type": "text"
+      },
+      {
+        "text": "비서",
+        "value": "assistantname",
+        "type": "text"
+      },
+      {
+        "text": "비서전화",
+        "value": "assistantphone",
+        "type": "tel"
+      },
+      {
+        "text": "이메일",
+        "value": "email",
+        "type": "email"
+      },
+      {
+        "text": "연락처통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "언어",
+        "value": "languages",
+        "type": "text"
+      },
+      {
+        "text": "언어수준",
+        "value": "languagelevel",
+        "type": "select",
+        "code": [
+          "primary",
+          "secondary",
+          "tertiary"
+        ]
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "마케팅동의",
+        "value": "marketingoptin",
+        "type": "bool"
+      },
+      {
+        "text": "이메일수신동의",
+        "value": "emailoptin",
+        "type": "bool"
+      },
+      {
+        "text": "전화수신동의",
+        "value": "calloptin",
+        "type": "bool"
+      },
+      {
+        "text": "SMS수신동의",
+        "value": "smsoptin",
+        "type": "bool"
+      },
+      {
+        "text": "DM수신동의",
+        "value": "dmoptin",
+        "type": "bool"
+      }
+    ]
+  },
+  {
+    "value": "activity",
+    "text": "활동",
+    "icon": "mdi-account-reactivate",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "type": "master",
+    "table": "mst_activity",
+    "fields": [
+      {
+        "text": "제목",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "progress",
+          "wait",
+          "defer",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "담당자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "이름",
+        "value": "whoid",
+        "type": "text"
+      },
+      {
+        "text": "일자",
+        "value": "activitydate",
+        "type": "date"
+      },
+      {
+        "text": "중요도",
+        "value": "priority",
+        "type": "select",
+        "code": [
+          "high",
+          "normal",
+          "low"
+        ]
+      },
+      {
+        "text": "활동통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "text"
+      },
+      {
+        "text": "위치",
+        "value": "location",
+        "type": "text"
+      },
+      {
+        "text": "시작일시",
+        "value": "startdatetime",
+        "type": "date"
+      },
+      {
+        "text": "종료일시",
+        "value": "enddatetime",
+        "type": "date"
+      },
+      {
+        "text": "종일이벤트",
+        "value": "isalldayevent",
+        "type": "bool"
+      },
+      {
+        "text": "유형",
+        "value": "activitytype",
+        "type": "select",
+        "code": [
+          "call",
+          "meeting",
+          "email",
+          "other"
+        ]
+      },
+      {
+        "text": "미리알림설정",
+        "value": "isreminderset",
+        "type": "bool"
+      },
+      {
+        "text": "비공개",
+        "value": "isprivate",
+        "type": "bool"
+      },
+      {
+        "text": "반복",
+        "value": "isrecurrence2",
+        "type": "bool"
+      },
+      {
+        "text": "반복간격",
+        "value": "recurrenceinterval",
+        "type": "number"
+      },
+      {
+        "text": "반복유형",
+        "value": "recurrenceregeneratedtype",
+        "type": "select",
+        "code": [
+          "day",
+          "week",
+          "month",
+          "year"
+        ]
+      },
+      {
+        "text": "이메일",
+        "value": "email",
+        "type": "email"
+      },
+      {
+        "text": "전화",
+        "value": "phone",
+        "type": "tel"
+      }
+    ]
+  },
+  {
+    "value": "product",
+    "text": "제품",
+    "icon": "mdi-package-variant-closed",
+    "visiblity": {
+      "read": "all",
+      "write": "group"
+    },
+    "type": "master",
+    "table": "mst_product",
+    "fields": [
+      {
+        "text": "제품이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "제품상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "제품소유자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "제품코드",
+        "value": "productcode",
+        "type": "text"
+      },
+      {
+        "text": "제품군",
+        "value": "family",
+        "type": "select",
+        "code": [
+          "campaign",
+          "REBM",
+          "logplanet",
+          "dataplanet",
+          "bigdata"
+        ]
+      },
+      {
+        "text": "제품통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "제품설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "수량측정단위",
+        "value": "quantityunitofmeasure",
+        "type": "select",
+        "code": [
+          "each"
+        ]
+      },
+      {
+        "text": "표시URL",
+        "value": "displayurl",
+        "type": "url"
+      },
+      {
+        "text": "제품SKU",
+        "value": "stockkeepingunit",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "value": "pricebook",
+    "text": "가격표",
+    "icon": "mdi-book",
+    "visiblity": {
+      "read": "all",
+      "write": "group"
+    },
+    "type": "master",
+    "table": "mst_pricebook",
+    "fields": [
+      {
+        "text": "가격목록이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "가격상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "담당자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "상세설명",
+        "value": "description",
+        "type": "descript"
+      },
+      {
+        "text": "표준가격목록여부",
+        "value": "isstandard",
+        "type": "bool"
+      }
+    ]
+  },
+  {
+    "value": "price",
+    "text": "가격",
+    "icon": "mdi-price",
+    "visiblity": {
+      "read": "all",
+      "write": "group"
+    },
+    "type": "child",
+    "table": "chd_price",
+    "fields": [
+      {
+        "text": "제품이름",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "제품코드",
+        "value": "productcode",
+        "type": "text"
+      },
+      {
+        "text": "제품군",
+        "value": "family",
+        "type": "select",
+        "code": [
+          "campaign",
+          "REBM",
+          "logplanet",
+          "dataplanet",
+          "bigdata"
+        ]
+      },
+      {
+        "text": "통화",
+        "value": "currencycode",
+        "type": "text"
+      },
+      {
+        "text": "수량측정단위",
+        "value": "quantityunitofmeasure",
+        "type": "select",
+        "code": [
+          "each"
+        ]
+      },
+      {
+        "text": "정가",
+        "value": "listprice",
+        "type": "number"
+      },
+      {
+        "text": "판매가격",
+        "value": "unitprice",
+        "type": "number"
+      },
+      {
+        "text": "수량",
+        "value": "quantity",
+        "type": "number"
+      },
+      {
+        "text": "할인",
+        "value": "discount",
+        "type": "number"
+      },
+      {
+        "text": "설명",
+        "value": "description",
+        "type": "descript"
+      }
+    ]
+  },
+  {
+    "value": "address",
+    "text": "주소",
+    "icon": "mdi-address",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "type": "child",
+    "fields": [
+      {
+        "text": "제목",
+        "value": "title",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "담당자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "주소구분",
+        "value": "addresstype",
+        "type": "select",
+        "code": [
+          "bill",
+          "ship",
+          "mail",
+          "other"
+        ]
+      },
+      {
+        "text": "우편번호",
+        "value": "zip",
+        "type": "zip"
+      },
+      {
+        "text": "시도",
+        "value": "siname",
+        "type": "text"
+      },
+      {
+        "text": "시군구",
+        "value": "sggname",
+        "type": "text"
+      },
+      {
+        "text": "읍면",
+        "value": "emdname",
+        "type": "text"
+      },
+      {
+        "text": "도로명",
+        "value": "roadname",
+        "type": "text"
+      },
+      {
+        "text": "건물번호",
+        "value": "buildingno",
+        "type": "text"
+      },
+      {
+        "text": "상세주소",
+        "value": "detailaddress",
+        "type": "text"
+      },
+      {
+        "text": "국가",
+        "value": "country",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "value": "notefile",
+    "text": "노트파일",
+    "icon": "mdi-file",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "type": "child",
+    "table": "chd_notefile",
+    "fields": [
+      {
+        "text": "이름",
+        "value": "filename",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "text": "상태",
+        "value": "status",
+        "type": "select",
+        "code": [
+          "open",
+          "close"
+        ],
+        "summary": "varchar(16)"
+      },
+      {
+        "text": "소유자",
+        "value": "owner",
+        "type": "reference",
+        "code": [
+          {
+            "object": "user",
+            "value": "id",
+            "text": "fullname"
+          }
+        ],
+        "summary": "varchar(32)"
+      },
+      {
+        "text": "파일타입",
+        "value": "filetype",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "value": "user",
+    "text": "사용자",
+    "type": "system",
+    "table": "sys_user",
+    "visiblity": {
+      "read": "all",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "id",
+        "text": "아이디",
+        "type": "text",
+        "summary": "varchar(32)",
+        "key": true
+      },
+      {
+        "value": "grp",
+        "text": "그룹",
+        "type": "text",
+        "summary": "varchar(32)",
+        "require": true
+      },
+      {
+        "value": "fullname",
+        "text": "이름",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "active",
+        "text": "활성화",
+        "type": "boolean",
+        "summary": "bool",
+        "default": "false"
+      },
+      {
+        "value": "password",
+        "text": "암호",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "regdate",
+        "text": "등록일자",
+        "type": "date",
+        "summary": "datetime"
+      },
+      {
+        "value": "email",
+        "text": "전자메일",
+        "type": "email",
+        "summary": "varchar(64)"
+      },
+      {
+        "value": "phone",
+        "text": "전화번호",
+        "type": "tel",
+        "summary": "varchar(32)"
+      },
+      {
+        "value": "description",
+        "text": "설명",
+        "type": "descript",
+        "summary": "varchar(512)"
+      }
+    ]
+  },
+  {
+    "value": "group",
+    "text": "사용자그룹",
+    "type": "system",
+    "table": "sys_group",
+    "visiblity": {
+      "read": "group",
+      "write": "owner"
+    },
+    "fields": [
+      {
+        "value": "grp",
+        "text": "아이디",
+        "type": "text",
+        "summary": "varchar(32)",
+        "key": true
+      },
+      {
+        "value": "fullname",
+        "text": "이름",
+        "type": "text",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "active",
+        "text": "활성화",
+        "type": "boolean",
+        "summary": "bool",
+        "default": false
+      },
+      {
+        "value": "regdate",
+        "text": "등록일자",
+        "type": "date",
+        "summary": "datetime"
+      },
+      {
+        "value": "site",
+        "text": "홈페이지",
+        "type": "url",
+        "summary": "varchar(128)"
+      },
+      {
+        "value": "description",
+        "text": "설명",
+        "type": "descript",
+        "summary": "varchar(512)"
+      }
+    ]
+  }
+]

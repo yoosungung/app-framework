@@ -1,0 +1,80 @@
+//@hostURL = http://172.21.236.190:3000/
+@hostURL = http://localhost:3000
+
+###
+# @name signin
+POST {{hostURL}}/sign/in
+content-type: application/json
+
+{
+  "id": "ysu",
+  "password": "eric"
+}
+
+###
+@authToken = {{signin.response.headers.x-access-token}}
+
+
+###
+GET {{hostURL}}/api/summary/master/opportunity?visible=owner
+content-type: application/json
+x-access-token: {{authToken}}
+
+###
+GET {{hostURL}}/state/machines
+content-type: application/json
+x-access-token: {{authToken}}
+
+###
+# @name createmachine
+POST {{hostURL}}/state/machines/test
+content-type: application/json
+x-access-token: {{authToken}}
+
+{
+  "id": "test",
+  "initial": "start",
+  "states": {
+    "start": {
+      "always": "dosomething"
+    },
+    "dosomething": {
+      "on": {"EVENT_SOME": "end"}
+    },
+    "end": {
+      "done": true
+    }
+  }
+}
+
+###
+@testid = {{createmachine.response.body.$.insertId}}
+@xmachineId = 3
+
+###
+GET {{hostURL}}/state/machines/{{xmachineId}}
+content-type: application/json
+x-access-token: {{authToken}}
+
+###
+# @name start
+PUT {{hostURL}}/state/machines/start/{{xmachineId}}
+content-type: application/json
+x-access-token: {{authToken}}
+
+###
+@xstate = {{start.response.body.$}}
+@xevent = EVENT_SOME
+@xstateId = 3
+
+###
+# @name next
+PUT {{hostURL}}/state/states/{{xstateId}}/{{xevent}}
+content-type: application/json
+x-access-token: {{authToken}}
+
+###
+DELETE {{hostURL}}/state/machines/{{xmachineId}}
+content-type: application/json
+x-access-token: {{authToken}}
+

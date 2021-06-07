@@ -1,0 +1,38 @@
+{
+  "app": {
+    "ip": "app.com",
+    "port": 80,
+    "name": "app",
+    "grp": "grp",
+    "expires": "10m"
+  },
+  "mysql": {
+    "host": "localhost",
+    "user": "user",
+    "password": "passwd",
+    "database": "db",
+    "connectionLimit": 30
+  },
+  "file": {
+    "S3": {
+      "endpoint": "https://object.server.com",
+      "region": "rg",
+      "credentials": {
+        "accessKeyId": "abc1234567890",
+        "secretAccessKey": "a1b2c3a1b2c3a1b2c3a1b2c3a1b2c3a1b2c3a1b2c3"
+      }
+    },
+    "bueket": "files",
+    "ACL": "public-read"
+  },
+  "mail": {
+    "service": "smtp",
+    "host": "smtp.app.com",
+    "port": 465,
+    "secure": false,
+    "auth": {
+      "user": "user",
+      "pass": "passwd"
+    }
+  }
+}

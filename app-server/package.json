@@ -1,0 +1,62 @@
+{
+  "name": "app-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js",
+    "xstat-test": "node xstate_service.js"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-lambda": "^1.98.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.5.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.2",
+    "xstate": "^4.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-var": [
+        "off"
+      ],
+      "one-var": [
+        "off"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoosungung/app-server.git"
+  },
+  "author": "eric-yoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoosungung/app-server/issues"
+  },
+  "homepage": "https://github.com/yoosungung/app-server#readme"
+}
